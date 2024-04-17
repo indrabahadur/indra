@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a Web Map Application using calcite</title>
+
+    <link rel="icon" type="image/x-icon" href="./favicon_io/favicon.ico">
+
+    <h1> INFRASTRUCTURE WEB-APP (THIMPHU)</h1>
+
+    <!-- THIS IS API LIBRARY FROM ESRI!-->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.29/"></script>
+
+    <!--LOADING CALCITE DESIGN SYSTEM!-->
+    <script type="module" src="https://js.arcgis.com/calcite-components/2.7.1/calcite.esm.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/2.7.1/calcite.css" />
+
+    <!--Application-Linking the files(html,js,css)-->
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js"></script>
+</head>
+
+<body class="calcite-mode-light">
+
+    <calcite-shell>
+        <!-- HEADER -->
+        <calcite-navigation slot="header">
+            <calcite-action slot="navigation-action" compact>
+                <img src="NEC-Logo-100x100-1.png" style="width:60px;height:60px;"
+                    alt="JNEC-Logo-100x100-1 logo">
+            </calcite-action>
+            <calcite-navigation-logo slot="logo" heading="Thimphu Map"
+                description="The infrastructure WEB-APP for Thimphu">
+            </calcite-navigation-logo>
+            <!-- BOTTON -->
+            <calcite-action slot="content-end" id="app-details-action" appearance="transparent" scale="m"
+                text="app details" icon="information"></calcite-action>
+        </calcite-navigation>
+
+        <!-- THIS IS LEFT PANEL-->
+
+        <calcite-shell-panel slot="panel-start">
+            <calcite-panel>
+                <calcite-block heading="Map legend" collapsible open>
+                    <calcite-icon slot="icon" icon="legend"></calcite-icon>
+                    <div id="legend-container"></div>
+
+                    <!-- LAYERLIST -->
+                </calcite-block>
+                <calcite-block heading="Layer list" collapsible open>
+                    <calcite-icon slot="icon" icon="layers"></calcite-icon>
+                    <div id="layerlist-container"></div>
+                </calcite-block>
+                <calcite-panel>
+
+                    <!-- APP DATA MODAL -->
+                    <calcite-modal id="app-details-modal">
+                        <h2 slot="header">Welcome</h2>
+                        <div slot="content">
+                            <calcite-label>
+                                <img src="../Data_Input/JNEC-Logo-100x100-1.png" alignment="center" style="width:60px;height:60px;"
+                       alt="JNEC-Logo-100x100-1 logo">
+                                Welcome to Thimphu Map, your comprehensive guide to the heart of Bhutan's capital!
+                                Explore the intricate layers of Thimphu's infrastructure with ease.
+                                From roads to landmarks, our application provides you with essential insights to
+                                navigate the city seamlessly.
+                                Let's embark on a journey through Thimphu's vibrant streets together!
+                            </calcite-label>
+                        </div>
+                        <div slot="back">
+                            <calcite-label layout="inline">
+                                United Nations Satellite Centre (UNOSAT)
+                            </calcite-label>
+                        </div>
+                    </calcite-modal>
+        </calcite-shell-panel>
+
+        <!-- THIS IS RIGHT PANEL-->
+        <!-- <calcite-shell-panel slot="panel-END"calcite-shell-panel> -->
+
+        <!-- THIS IS CENTER PANEL-->
+        <calcite-panel>
+            <div id="viewDiv"></div>
+        </calcite-panel>
+
+    </calcite-shell>
+</body>
+
+</html>
